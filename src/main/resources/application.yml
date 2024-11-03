@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=TESTDB;encrypt=true;trustServerCertificate=true;
+    username: user
+    password: user
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+logging:
+  level:
+    root: INFO
+    javatest.com.example.JavaTest: DEBUG
+  file:
+    name: logs/application.log

@@ -1,0 +1,35 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.5'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'javatest.com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(23)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'com.microsoft.sqlserver:mssql-jdbc:12.8.1.jre11'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.springframework.boot:spring-boot-starter-logging'
+	implementation 'org.projectlombok:lombok:1.18.34'
+	compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.1'
+	implementation 'org.springframework.boot:spring-boot-starter'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
