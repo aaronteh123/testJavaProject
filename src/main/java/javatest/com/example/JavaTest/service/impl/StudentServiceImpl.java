@@ -9,22 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-
 @Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private IStudentRepository istudentRepository;
-
-//    @Override
-//    @Transactional(readOnly = true)
-//    public List<StudentDTO> getAllStudents() {
-//        List<Student> students = istudentRepository.findAll();
-//        return  students.stream().map(StudentDTO::new).collect(Collectors.toList());
-//    }
 
     @Override
     @Transactional(readOnly = true)
@@ -32,7 +21,6 @@ public class StudentServiceImpl implements StudentService {
         Page<Student> studentsPage = istudentRepository.findAll(pageable);
         return studentsPage.map(StudentDTO::new);
     }
-
 
     @Override
     @Transactional

@@ -10,19 +10,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping("/api/students")
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
-
-//    @GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE })
-//    public ResponseEntity<List<StudentDTO>> getStudents() {
-//        List<StudentDTO> students = studentService.getAllStudents();
-//        return ResponseEntity.ok(students);
-//    }
 
     @GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Page<StudentDTO>> getStudents(
